@@ -1,0 +1,3 @@
+**/node_modules/**
+helm/Chart.lock
+helm/charts
