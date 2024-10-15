@@ -1,9 +1,9 @@
 const prom = require('prom-client');
 
 const caughtPokemonsCount = new prom.Counter({
-    name: 'caught_pokemon',
+    name: 'pokemon_caught_total',
     help: 'Number of caught pokemons',
-    labelNames: ['pokemon_type']
+    labelNames: ['type']
 })
 
 class PokemonService {
@@ -21,7 +21,7 @@ class PokemonService {
         await setTimeout(() => {}, random * 100);
 
         this.pokemons.push({ name: pokemonName, type: pokemonType })
-        caughtPokemonsCount.inc({ pokemon_type: pokemonType })
+        caughtPokemonsCount.inc({ type: pokemonType })
     }
 
     getCaughtPokemons = async () => {

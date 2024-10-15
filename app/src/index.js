@@ -27,6 +27,7 @@ app.post('/pokemon', async (req, res) => {
     await pokemonService.catchPokemon(req.body.pokemonName, req.body.pokemonType)
     res.send('OK')
   } catch (e) {
+    console.log(e)
     res.status(500).send({error: true})
   }
 })
